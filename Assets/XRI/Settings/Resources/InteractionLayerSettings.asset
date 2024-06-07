@@ -18,6 +18,7 @@ MonoBehaviour:
   - Direct
   - Item
   - Poke
+  - Block
   - 
   - 
   - 
@@ -44,4 +45,3 @@ MonoBehaviour:
   - 
   - 
   - 
-  - Teleport
