@@ -26,7 +26,7 @@ public class ZombieSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(sunController.isDay()){
+       if(sunController.IsDay()){
          spawned=false;
          foreach (Transform child in gameObject.transform)
          {
@@ -34,7 +34,7 @@ public class ZombieSpawner : MonoBehaviour
          }
        }
 
-       if(!spawned&&!sunController.isDay()){
+       if(!spawned&&!sunController.IsDay()){
          spawnZombie();
        }
        
