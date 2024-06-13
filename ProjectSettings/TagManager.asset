@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Weapon
   - Shelter
+  - Block
   layers:
   - Default
   - TransparentFX
