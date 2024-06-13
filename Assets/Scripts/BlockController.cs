@@ -18,19 +18,26 @@ public class BlockController : MonoBehaviour
     {
         
     }
-    
 
     public void ScaleTo(float ratio)
     {
-        Debug.Log("ScaleTo: " + ratio);
+        Debug.Log("Scaling to " + ratio);
         transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
     }
 
-   public void TurnOffSocket()
+    public void TurnOffSockets()
     {
-        gameObject.GetComponent<XRSocketInteractor>().enabled = false;
-    }public void TurnOnSocket()
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.GetComponent<XRSocketInteractor>().enabled = false;
+        }
+    }
+    
+    public void TurnOnSockets()
     {
-        gameObject.GetComponent<XRSocketInteractor>().enabled = true;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.GetComponent<XRSocketInteractor>().enabled = true;
+        }
     }
 }
