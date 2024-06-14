@@ -1728,7 +1728,7 @@ GameObject:
   - component: {fileID: 3971837834781439538}
   m_Layer: 0
   m_Name: Zombie1
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1851,7 +1851,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 6
+  m_Radius: 15
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!195 &5504128187035847753
 NavMeshAgent:
@@ -1889,7 +1889,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDistance: 1
   speed: 2
-  moveInterval: 5
+  moveIntervalMin: 3
+  moveIntervalMax: 7
   moveRadius: 10
 --- !u!1 &4710940672626480558
 GameObject:

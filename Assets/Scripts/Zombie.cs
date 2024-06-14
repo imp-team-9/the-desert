@@ -19,6 +19,7 @@ public class Zombie : MonoBehaviour
     private float timer; 
     private Vector3 randomDirection; 
      public float moveRadius = 10f; 
+     private bool isPlayer;
 
     void Start()
     {
@@ -38,7 +39,10 @@ public class Zombie : MonoBehaviour
             anim.SetBool("Walk", true);
             if (navAgent.remainingDistance <= attackDistance)
             {
-                Attack();
+                if(!isPlayer){
+                    Attack();
+                }
+               
             }
         }
         
@@ -64,8 +68,14 @@ public class Zombie : MonoBehaviour
         if (collider.CompareTag("Block"))
         {
             targetPos = collider.transform;
+            isPlayer=false;
            
         }
+        if(collider.CompareTag("Player")){
+            targetPos= collider.transform;
+            isPlayer=true;
+        }
+
     }
 
     void OnTriggerStay(Collider collider)
@@ -73,7 +83,13 @@ public class Zombie : MonoBehaviour
         if (collider.CompareTag("Block"))
         {
             targetPos = collider.transform;
+            isPlayer=false;
            
+        }
+
+        if(collider.CompareTag("Player")){
+            targetPos= collider.transform;
+            isPlayer=true;
         }
     }
 
@@ -85,6 +101,8 @@ public class Zombie : MonoBehaviour
             anim.SetBool("Attack", true);
             //anim.SetBool("Walk", false);
             Destroy(targetPos.gameObject);
+            
+            
             if(targetPos.gameObject==null){
                 
                 anim.SetBool("Attack", false);

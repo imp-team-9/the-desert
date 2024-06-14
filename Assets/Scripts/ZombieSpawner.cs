@@ -13,6 +13,7 @@ public class ZombieSpawner : MonoBehaviour
   private SunController sunController;
    Vector3 spawnPoint;
    bool spawned;
+   [SerializeField]
    int spawnNumber;
    [SerializeField]
    private float mapSize;
@@ -24,7 +25,7 @@ public class ZombieSpawner : MonoBehaviour
         sunController = light.GetComponent<SunController>();
          spawnPoint = new Vector3();
         spawned = true;
-        spawnNumber=100;
+        
     }
 
     // Update is called once per frame
