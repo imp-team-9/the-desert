@@ -5,25 +5,27 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class BlockController : MonoBehaviour
 {
-
-    
-    // Start is called before the first frame update
-    void Start()
+    public XRGrabInteractable grabInteractable;
+    private void Start()
     {
-        
+        grabInteractable = GetComponent<XRGrabInteractable>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
 
-    public void ScaleTo(float ratio)
+
+
+
+    public void ScaleTo(float scaleFactor = 0.5f)
     {
-        Debug.Log("ScaleTo: " + ratio);
-        transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        Debug.Log("ScaleTo: " + scaleFactor);
+        if(scaleFactor == 1)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1)*scaleFactor;
+        }
     }
 
    
