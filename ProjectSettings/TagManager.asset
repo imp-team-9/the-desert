@@ -8,6 +8,8 @@ TagManager:
   - Shelter
   - Block
   - Zombie
+  - Axe
+  - Pickaxe
   layers:
   - Default
   - TransparentFX
