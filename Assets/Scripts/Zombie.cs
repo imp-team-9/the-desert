@@ -12,8 +12,10 @@ public class Zombie : MonoBehaviour
     public float attackDistance = 1f;
 
     public float speed = 2f; 
-    public float moveInterval = 5f; //방향변경주기
-    
+    private float moveInterval = 5f; //방향변경주기
+    public float moveIntervalMin = 3f; //최소 방향변경 주기
+    public float moveIntervalMax = 7f;
+
     private float timer; 
     private Vector3 randomDirection; 
      public float moveRadius = 10f; 
@@ -23,6 +25,7 @@ public class Zombie : MonoBehaviour
         navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         anim = GetComponent<Animator>();
          SetRandomDestination();
+         moveInterval = Random.Range(moveIntervalMin, moveIntervalMax);
     }
 
     // Update is called once per frame
@@ -58,7 +61,7 @@ public class Zombie : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Shelter"))
+        if (collider.CompareTag("Block"))
         {
             targetPos = collider.transform;
            
@@ -67,7 +70,7 @@ public class Zombie : MonoBehaviour
 
     void OnTriggerStay(Collider collider)
     {
-        if (collider.CompareTag("Shelter"))
+        if (collider.CompareTag("Block"))
         {
             targetPos = collider.transform;
            
