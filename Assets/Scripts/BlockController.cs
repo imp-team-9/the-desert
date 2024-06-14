@@ -26,11 +26,5 @@ public class BlockController : MonoBehaviour
         transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
     }
 
-   public void TurnOffSocket()
-    {
-        gameObject.GetComponent<XRSocketInteractor>().enabled = false;
-    }public void TurnOnSocket()
-    {
-        gameObject.GetComponent<XRSocketInteractor>().enabled = true;
-    }
+   
 }

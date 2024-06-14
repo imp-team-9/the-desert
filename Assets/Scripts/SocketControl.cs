@@ -8,7 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class SocketControl : MonoBehaviour
 {
 
-
+    public LayerMask Block;
 
     public void DisableSocketInChildren()
     {
@@ -36,6 +36,13 @@ public class SocketControl : MonoBehaviour
                 Socket.enabled = true;
                 collider.enabled = true;
             }
+            Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 0.01f,Block);
+            if(hitColliders.Length > 0 && Socket.hasSelection == false)
+            {
+                Socket.enabled = false;
+            }
+
+
         }
     }
 
