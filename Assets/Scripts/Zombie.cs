@@ -12,17 +12,21 @@ public class Zombie : MonoBehaviour
     public float attackDistance = 1f;
 
     public float speed = 2f; 
-    public float moveInterval = 5f; //방향변경주기
-    
+    private float moveInterval = 5f; //방향변경주기
+    public float moveIntervalMin = 3f; //최소 방향변경 주기
+    public float moveIntervalMax = 7f;
+
     private float timer; 
     private Vector3 randomDirection; 
      public float moveRadius = 10f; 
+     private bool isPlayer;
 
     void Start()
     {
         navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         anim = GetComponent<Animator>();
          SetRandomDestination();
+         moveInterval = Random.Range(moveIntervalMin, moveIntervalMax);
     }
 
     // Update is called once per frame
@@ -35,7 +39,10 @@ public class Zombie : MonoBehaviour
             anim.SetBool("Walk", true);
             if (navAgent.remainingDistance <= attackDistance)
             {
-                Attack();
+                if(!isPlayer){
+                    Attack();
+                }
+               
             }
         }
         
@@ -58,19 +65,31 @@ public class Zombie : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Shelter"))
+        if (collider.CompareTag("Block"))
         {
             targetPos = collider.transform;
+            isPlayer=false;
            
         }
+        if(collider.CompareTag("Player")){
+            targetPos= collider.transform;
+            isPlayer=true;
+        }
+
     }
 
     void OnTriggerStay(Collider collider)
     {
-        if (collider.CompareTag("Shelter"))
+        if (collider.CompareTag("Block"))
         {
             targetPos = collider.transform;
+            isPlayer=false;
            
+        }
+
+        if(collider.CompareTag("Player")){
+            targetPos= collider.transform;
+            isPlayer=true;
         }
     }
 
@@ -82,6 +101,8 @@ public class Zombie : MonoBehaviour
             anim.SetBool("Attack", true);
             //anim.SetBool("Walk", false);
             Destroy(targetPos.gameObject);
+            
+            
             if(targetPos.gameObject==null){
                 
                 anim.SetBool("Attack", false);

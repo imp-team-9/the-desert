@@ -7,6 +7,7 @@ TagManager:
   - Weapon
   - Shelter
   - Block
+  - Zombie
   layers:
   - Default
   - TransparentFX

@@ -13,14 +13,19 @@ public class ZombieSpawner : MonoBehaviour
   private SunController sunController;
    Vector3 spawnPoint;
    bool spawned;
+   [SerializeField]
    int spawnNumber;
+   [SerializeField]
+   private float mapSize;
+   [SerializeField]
+   private float shelterSize;
 
     void Start()
     {
         sunController = light.GetComponent<SunController>();
          spawnPoint = new Vector3();
         spawned = true;
-        spawnNumber=100;
+        
     }
 
     // Update is called once per frame
@@ -55,14 +60,14 @@ public class ZombieSpawner : MonoBehaviour
 
      private Vector3 GetRandomPosition(){
        
-        spawnPoint.y=-1.3f;
+        spawnPoint.y=0.1f;
         do{
-            spawnPoint.x=Random.Range(-250.0f,250.0f);
-        }while (spawnPoint.x >= -25.0f && spawnPoint.x <= 25.0f);
+            spawnPoint.x=Random.Range(mapSize*-1.0f,mapSize);
+        }while (spawnPoint.x >= shelterSize*-1.0f && spawnPoint.x <= shelterSize);
         
         do{
-            spawnPoint.z=Random.Range(-250.0f,250.0f);
-        }while(spawnPoint.z >= -25.0f && spawnPoint.z <= 25.0f);
+            spawnPoint.z=Random.Range(mapSize*-1.0f,mapSize);
+        }while(spawnPoint.z >= shelterSize*-1.0f && spawnPoint.z <= shelterSize);
 
         return spawnPoint;
      }
