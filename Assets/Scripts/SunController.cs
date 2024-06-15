@@ -5,8 +5,8 @@ using TMPro;
 
 public class SunController : MonoBehaviour
 {
-    private float day = 2f;
-    private float night = 10f;
+    private float day = 1.3f;
+    private float night = 6f;
 
     private bool isDay = true;
     private int dayCount = 1;

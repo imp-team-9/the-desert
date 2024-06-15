@@ -1892,6 +1892,7 @@ MonoBehaviour:
   moveIntervalMin: 3
   moveIntervalMax: 7
   moveRadius: 10
+  attackInterval: 2
 --- !u!1 &4710940672626480558
 GameObject:
   m_ObjectHideFlags: 0

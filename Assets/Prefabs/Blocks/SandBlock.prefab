@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 4273003927479914310}
   - component: {fileID: 3774445860488891999}
   - component: {fileID: 7710049630033302649}
+  - component: {fileID: -1042703858196115505}
   m_Layer: 6
   m_Name: SandBlock
   m_TagString: Block
@@ -378,8 +379,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.5, y: 0.5, z: 1.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6007593350738615174}
   - {fileID: 5920106089781190067}
@@ -538,18 +539,6 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3774445860488891999}
-        m_TargetAssemblyTypeName: BlockController, Assembly-CSharp
-        m_MethodName: ScaleTo
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0.1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 7710049630033302649}
         m_TargetAssemblyTypeName: SocketControl, Assembly-CSharp
         m_MethodName: DisableSocketInChildren
@@ -565,18 +554,6 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3774445860488891999}
-        m_TargetAssemblyTypeName: BlockController, Assembly-CSharp
-        m_MethodName: ScaleTo
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 7710049630033302649}
         m_TargetAssemblyTypeName: SocketControl, Assembly-CSharp
         m_MethodName: EnableSocketInChildren
@@ -606,19 +583,7 @@ MonoBehaviour:
       m_Calls: []
   m_Deactivated:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3774445860488891999}
-        m_TargetAssemblyTypeName: BlockController, Assembly-CSharp
-        m_MethodName: ScaleTo
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
@@ -670,7 +635,7 @@ MonoBehaviour:
   m_SmoothRotation: 0
   m_SmoothRotationAmount: 8
   m_TightenRotation: 0.1
-  m_TrackScale: 0
+  m_TrackScale: 1
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
@@ -711,7 +676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3960de7542af55043b887166e001ff02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabInteractable: {fileID: 0}
 --- !u!114 &7710049630033302649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,6 +691,19 @@ MonoBehaviour:
   Block:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &-1042703858196115505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3873499224117587993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38cbced580e3c4542b07b007b6cd8b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 5
 --- !u!1 &5978427259218344521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,7 +986,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.2
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &580711063753279631
 MonoBehaviour:
